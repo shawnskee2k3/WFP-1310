@@ -36,12 +36,12 @@ window.onload = function(){
 			echo "<img class='main_logo' src='".of_get_option('logo', true)."' title='".esc_attr(get_bloginfo( 'name','display' ) )."'></a></h1>";	
 			}
 		else { ?>
-			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span class="site-title"><?php bloginfo( 'name' ); ?></span></a></h1> 
+			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> 
 		<?php	
 		}
 		?>
 		</div>
-        
+        <?php if ( of_get_option('facebook', true) != "" || of_get_option('twitter', true) != "" || of_get_option('google', true) != "" || of_get_option('pinterest', true) != "" || of_get_option('linkedin', true) != "" || of_get_option('instagram', true) != "" || of_get_option('youtube', true) != "" || of_get_option('feedburner', true) != "") { ?>  
         <div id="social_icons">
 		    <?php if ( of_get_option('facebook', true) != "") { ?>
 			 <a href="<?php echo of_get_option('facebook', true); ?>" title="Facebook" ><img src="<?php echo get_stylesheet_directory_uri()."/images/facebook.png"; ?>"></a>
@@ -68,7 +68,8 @@ window.onload = function(){
 			 <a href="<?php echo of_get_option('feedburner', true); ?>" title="RSS Feed" ><img src="<?php echo get_stylesheet_directory_uri()."/images/rss.png"; ?>"></a>
              <?php } ?>
           </div>	
-        
+        <?php } else { ?>
+	<?php } ?>
 	</header><!-- #masthead -->
     
        <nav id="site-navigation" class="main-navigation" role="navigation">
